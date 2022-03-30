@@ -3,6 +3,8 @@ package com.example.samprojectdb.controller;
 import com.example.samprojectdb.entity.Child;
 import com.example.samprojectdb.repository.ChildRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -43,8 +45,13 @@ public class ChildController {
     @PutMapping("/children")
     //@RequestMapping( method = RequestMethod.PUT, headers = "Accept=application/json")
     public Child updateChildDetails(@RequestBody Child child){
-        System.out.println(child.toString());
         return childRepo.save(child);
+    }
+
+    @DeleteMapping("/children/{id}")
+    public ResponseEntity<HttpStatus> deleteChildById(@PathVariable int id){
+        childRepo.deleteById(id);
+        return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
     }
 
 }
