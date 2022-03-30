@@ -27,6 +27,22 @@ public class ChildController {
 
     @PostMapping("/children")
     public Child saveChildDetails(@RequestBody Child child) {
+        return childRepo.save(child);
+    }
+
+    @GetMapping("/children/{id}")
+    public Child getSingleChild(@PathVariable int id){
+        return childRepo.findById(id).get();
+    }
+
+    //if the child id is present, the row will be updated
+    //else, new row will be created
+
+    //make same funcitons for name,rchid too
+    //@PostMapping(value="/rest/account/json", consumes={"application/json"})
+    @PutMapping("/children")
+    //@RequestMapping( method = RequestMethod.PUT, headers = "Accept=application/json")
+    public Child updateChildDetails(@RequestBody Child child){
         System.out.println(child.toString());
         return childRepo.save(child);
     }
