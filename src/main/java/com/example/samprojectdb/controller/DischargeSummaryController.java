@@ -24,9 +24,9 @@ public class DischargeSummaryController {
     {
         return dischargeSummaryRepo.findAll();
     }
-    @RequestMapping("/findByAwwId/{aww_id}")
-    public List<DischargeSummary> getAllDischargeSummaries(@PathVariable("aww_id") int awwId)
-    {
-        return dischargeSummaryRepo.findDischargeSummaryByAww_AwwId(awwId);
-    }
+//    @RequestMapping("/findByAwwId/{aww_id}")
+//    public List<DischargeSummary> getAllDischargeSummaries(@PathVariable("aww_id") int awwId)
+//    {
+//        return dischargeSummaryRepo.findDischargeSummaryByAww_AwwId(awwId);
+//    }
 }

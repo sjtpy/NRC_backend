@@ -1,7 +1,9 @@
 package com.example.samprojectdb.controller;
 
 import com.example.samprojectdb.entity.Child;
+import com.example.samprojectdb.entity.DischargeSummary;
 import com.example.samprojectdb.repository.ChildRepo;
+import com.example.samprojectdb.repository.DischargeSummaryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,10 @@ public class ChildController {
 
     @Autowired
     private ChildRepo childRepo;
+
+    @Autowired
+    private DischargeSummaryRepo dischargeSummaryRepo;
+
 
     @GetMapping("/children")
     @ResponseBody
@@ -54,4 +60,14 @@ public class ChildController {
         return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping("/discharge")
+    public DischargeSummary dischargeChild(@RequestBody DischargeSummary dischargeSummary){
+         return dischargeSummaryRepo.save(dischargeSummary);
+    }
+
+    @GetMapping("/dischargedList")
+    @ResponseBody
+    public List<DischargeSummary> getAllDischarged(){
+        return dischargeSummaryRepo.findAll();
+    }
 }
