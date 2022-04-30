@@ -1,9 +1,10 @@
 package com.example.samprojectdb.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
-
+@Repository
 @Entity
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

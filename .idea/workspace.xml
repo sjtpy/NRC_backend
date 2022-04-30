@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16bae4b0-e72a-45be-9153-a9a94cd4c885" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/AuthRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/repository/UserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/controller/ChildController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/controller/ChildController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/samprojectdb/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/controller/ChildController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/controller/ChildController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/samprojectdb/entity/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +153,10 @@
       <workItem from="1650796841991" duration="1187000" />
       <workItem from="1650870622287" duration="6015000" />
       <workItem from="1650955926719" duration="39000" />
+      <workItem from="1651152512100" duration="6523000" />
+      <workItem from="1651161032762" duration="3293000" />
+      <workItem from="1651166221961" duration="796000" />
+      <workItem from="1651256228078" duration="1098000" />
     </task>
     <servers />
   </component>
