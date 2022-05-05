@@ -1,10 +1,13 @@
 package com.example.samprojectdb.controller;
 
 import com.example.samprojectdb.AuthRequest;
+import com.example.samprojectdb.JwtService;
 import com.example.samprojectdb.entity.Child;
 import com.example.samprojectdb.entity.DischargeSummary;
+import com.example.samprojectdb.entity.FollowUp;
 import com.example.samprojectdb.entity.User;
 import com.example.samprojectdb.repository.ChildRepo;
+import com.example.samprojectdb.repository.FollowUpRepo;
 import com.example.samprojectdb.repository.DischargeSummaryRepo;
 import com.example.samprojectdb.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ public class ChildController {
     private ChildRepo childRepo;
 
     @Autowired
+    private FollowUpRepo followUpRepo;
+
+    @Autowired
     private DischargeSummaryRepo dischargeSummaryRepo;
 
     @Autowired
@@ -33,6 +39,9 @@ public class ChildController {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private JwtService jwtService;
 
     @GetMapping("/children")
     @ResponseBody
@@ -43,6 +52,11 @@ public class ChildController {
     @PostMapping("/children")
     public Child saveChildDetails(@RequestBody Child child) {
         return childRepo.save(child);
+    }
+
+    @PostMapping("/createfollowup")
+    public FollowUp saveFollowUp(@RequestBody FollowUp followUp) {
+        return followUpRepo.save(followUp);
     }
 
     @GetMapping("/children/{id}")
@@ -74,18 +88,20 @@ public class ChildController {
         return dischargeSummaryRepo.findAll();
     }
 
-    @PostMapping("/login/")
+    @PostMapping("/login")
     @ResponseBody
-    public String login(@RequestBody AuthRequest authRequest){
+    public ResponseEntity<?> login(@RequestBody AuthRequest authRequest){
         System.out.println("Inside");
         User user=userRepo.getUserByUsername(authRequest.getUsername());
         if(user!=null && user.getPassword().equals(authRequest.getPassword())){
             System.out.println("valid creds");
-            return "Success";
+            String token= jwtService.createToken(String.valueOf(user.getUserId()));
+            return ResponseEntity.ok(token);
         }
         System.out.println("Inside");
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        return "1";
+        //System.out.println(user.getUsername());
+        //System.out.println(user.getPassword());
+        ResponseEntity<String> response=new ResponseEntity<String>("Unauthorized",HttpStatus.UNAUTHORIZED);
+        return response;
     }
 }

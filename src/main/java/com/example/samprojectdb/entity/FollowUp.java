@@ -3,6 +3,7 @@ package com.example.samprojectdb.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -19,13 +20,13 @@ public class FollowUp {
     private String growthStatus;
     private String symptoms;
     @Column(nullable = false)
-    private Date createdAt;
+    private LocalDate createdAt;
     @Column(nullable = false)
-    private Date followupDate;
+    private LocalDate followupDate;
     @Column(nullable = false)
-    private boolean isAttempted;
+    private char isAttempted;
     @Column(nullable = false)
-    private Date attemptedDate;
+    private LocalDate attemptedDate;
     @ManyToOne @JoinColumn(nullable=false)
     @JsonIgnore
     private DischargeSummary dischargeSummary;
@@ -78,35 +79,35 @@ public class FollowUp {
         this.symptoms = symptoms;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getFollowupDate() {
+    public LocalDate getFollowupDate() {
         return followupDate;
     }
 
-    public void setFollowupDate(Date followupDate) {
+    public void setFollowupDate(LocalDate followupDate) {
         this.followupDate = followupDate;
     }
 
-    public boolean isAttempted() {
+    public char isAttempted() {
         return isAttempted;
     }
 
-    public void setAttempted(boolean attempted) {
+    public void setAttempted(char attempted) {
         isAttempted = attempted;
     }
 
-    public Date getAttemptedDate() {
+    public LocalDate getAttemptedDate() {
         return attemptedDate;
     }
 
-    public void setAttemptedDate(Date attemptedDate) {
+    public void setAttemptedDate(LocalDate attemptedDate) {
         this.attemptedDate = attemptedDate;
     }
 
